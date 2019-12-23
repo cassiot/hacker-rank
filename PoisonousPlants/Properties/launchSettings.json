@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PoisonousPlants": {
+      "commandName": "Project",
+      "commandLineArgs": "< input_cvt.txt algo 6"
+    }
+  }
+}
