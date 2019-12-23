@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Waiter": {
+      "commandName": "Project",
+      "commandLineArgs": "< input05.txt"
+    }
+  }
+}
