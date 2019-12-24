@@ -47,6 +47,9 @@ namespace Waiter
                 var isPrime = true;
                 foreach (var p in primes)
                 {
+                    if (p * p > i)
+                        break;
+
                     if (i % p == 0)
                     {
                         isPrime = false;
