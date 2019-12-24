@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ANDxorOR": {
+      "commandName": "Project",
+      "commandLineArgs": "< input16.txt"
+    }
+  }
+}
