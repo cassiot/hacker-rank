@@ -12,9 +12,6 @@ namespace QueueUsingTwoStacks
             var s1 = new Stack<string>();
             var s2 = new Stack<string>();
 
-            Stack<string> sTemp;
-            string peek = null;
-
             for (int i = 0; i < aCount; i++)
             {
                 var line = Console.ReadLine();
