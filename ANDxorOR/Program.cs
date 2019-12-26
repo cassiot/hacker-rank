@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ANDxorOR
 {
@@ -34,65 +35,45 @@ namespace ANDxorOR
             return max;
         }
 
+        /// <summary>
+        /// Editorial
+        /// </summary>
         static int andXorOr2(int[] a)
         {
-            int m1I = 0;
-            int m1 = int.MaxValue, m2 = int.MaxValue;
+            var s = new Stack<int>();
 
-            for (int i = 0; i < a.Length; i++)
+            int result = 0, cur = 0;
+
+            for (int i = 0; i < a.Length; ++i)
             {
-                if (a[i] < m1)
+                while (s.Count > 0 && s.Peek() >= a[i])
                 {
-                    m2 = m1;
-                    m1 = a[i];
 
-                    m1I = i;
-
-                    if (m2 == int.MaxValue)
-                        continue;
-                }
-                else
-                {
-                    var min1 = a[i];
-                    var min2 = a[i];
-                    for (int j = i - 1; j > m1I; j--)
-                    {
-                        if (a[i] > min1 && a[i] > min2)
-                            break;
-
-                        if (min1 > a[j])
-                        {
-                            min1 = a[j];
-                            min2 = min1;
-                        }
-                        else if (min2 > a[j])
-                            min2 = a[j];
-
-                        CalcMax(a[i], min1);
-                    }
-
-                    continue;
+                    int tmp = s.Peek(); s.Pop();
+                    result = Math.Max(result, tmp ^ a[i]);
                 }
 
-                CalcMax(m1, m2);
+                if (s.Count > 0) result = Math.Max(result, a[i] ^ s.Peek());
+                s.Push(a[i]);
             }
 
-            return max;
+            return result;
         }
 
         public static void CalcMax(int m1, int m2)
         {
-            var and = m1 & m2;
-            var or = m1 | m2;
-            var xOr = m1 ^ m2;
+            var s = m1 ^ m2;
+            //var and = m1 & m2;
+            //var or = m1 | m2;
+            //var xOr = m1 ^ m2;
 
-            var xOr2 = and ^ or;
-            var s = xOr2 & xOr;
+            //var xOr2 = and ^ or;
+            //var s = xOr2 & xOr;
 
             if (s > max)
             {
                 max = s;
-                Console.WriteLine($"[{m1}, {m2}] => max= {max}");
+                //Console.WriteLine($"[{m1}, {m2}] => max= {max}");
 
             }
             //Console.WriteLine($"[{m1}, {m2}] => max= {max}");
@@ -177,7 +158,7 @@ namespace ANDxorOR
                         CalcMax(a[i], stack.Peek());
                         stack.Pop();
                     }
-                    if(stack.Count > 0)
+                    if (stack.Count > 0)
                         CalcMax(a[i], stack.Peek());
 
                     stack.Push(a[i]);
@@ -194,8 +175,16 @@ namespace ANDxorOR
             int aCount = Convert.ToInt32(Console.ReadLine());
 
             int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp));
+
+            var sw = new Stopwatch();
+            sw.Start();
+
             int result = andXorOr4(a);
 
+            sw.Stop();
+
+            Console.WriteLine($"time: {sw.Elapsed.TotalMilliseconds}");
+            Console.WriteLine($"result: {result}");
             //textWriter.WriteLine(result);
 
             //textWriter.Flush();
