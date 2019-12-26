@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "QueueUsingTwoStacks": {
+      "commandName": "Project",
+      "commandLineArgs": "< input06.txt"
+    }
+  }
+}
