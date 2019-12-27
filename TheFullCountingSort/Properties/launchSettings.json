@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TheFullCountingSort": {
+      "commandName": "Project",
+      "commandLineArgs": "< input00.txt"
+    }
+  }
+}
