@@ -2,7 +2,7 @@
   "profiles": {
     "CastleOnTheGrid": {
       "commandName": "Project",
-      "commandLineArgs": "< input03.txt"
+      "commandLineArgs": "< input09.txt"
     }
   }
 }

@@ -19,6 +19,7 @@ namespace CastleOnTheGrid
             public int count;
             public int direction;
             public bool visited;
+            public Node parent;
         }
 
         static int minimumMoves2(string[] grid, int startX, int startY, int goalX, int goalY)
@@ -35,7 +36,9 @@ namespace CastleOnTheGrid
 
             dic.Add(key, startNode);
             q.Enqueue(startNode);
-
+            
+            Node  minNode = startNode;
+            
             while (q.Count > 0)
             {
                 SetNeighboursToVisit(q.Peek());
@@ -45,15 +48,16 @@ namespace CastleOnTheGrid
                     if (lastNode.count < min)
                     {
                         min = lastNode.count;
+                        minNode = lastNode;
                     }
                 }
             }
 
-            //while (minNode.parent != null)
-            //{
-            //    Print(minNode.x, minNode.y, goalX, goalY);
-            //    minNode = minNode.parent;
-            //}
+            while (minNode.parent != null)
+            {
+                Print(minNode.x, minNode.y, goalX, goalY);
+                minNode = minNode.parent;
+            }
 
 
             return min;
@@ -68,7 +72,7 @@ namespace CastleOnTheGrid
             {
                 if (dic[key].count == newCount && dic[key].direction != direction)
                 {
-                    var newNode = new Node() { x = x, y = y, count = newCount, direction = direction };
+                    var newNode = new Node() { x = x, y = y, count = newCount, direction = direction, parent = parent };
                     q.Enqueue(newNode);
                 }
                 else if (dic[key].count > newCount)
@@ -81,7 +85,7 @@ namespace CastleOnTheGrid
             }
             else
             {
-                var newNode = new Node() { x = x, y = y, count = newCount, direction = direction };
+                var newNode = new Node() { x = x, y = y, count = newCount, direction = direction, parent = parent };
                 dic.Add(key, newNode);
                 q.Enqueue(newNode);
             }
