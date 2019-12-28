@@ -7,8 +7,6 @@ namespace CastleOnTheGrid
     class Program
     {
         static int cursorLeft, cursorTop;
-        static List<int> xPositions;
-        static List<int> yPositions;
         static string[] sgrid;
         static Dictionary<int, Node> dic = new Dictionary<int, Node>();
         static Queue<Node> q = new Queue<Node>();
@@ -19,9 +17,7 @@ namespace CastleOnTheGrid
             public int x;
             public int y;
             public int count;
-            public List<Node> nvn;
             public int direction;
-            public Node parent;
             public bool visited;
         }
 
@@ -33,27 +29,22 @@ namespace CastleOnTheGrid
             {
                 x = startX,
                 y = startY,
-                nvn = new List<Node>()
             };
+
             var key = startX * sgrid.Length + startY;
 
             dic.Add(key, startNode);
             q.Enqueue(startNode);
 
-            Node lastNode = null;
-            Node minNode = null;
-
             while (q.Count > 0)
             {
                 SetNeighboursToVisit(q.Peek());
-                lastNode = q.Dequeue();
-
+                Node lastNode = q.Dequeue();
                 if (lastNode.x == goalX && lastNode.y == goalY)
                 {
                     if (lastNode.count < min)
                     {
                         min = lastNode.count;
-                        minNode = lastNode;
                     }
                 }
             }
@@ -75,59 +66,33 @@ namespace CastleOnTheGrid
 
             if (dic.ContainsKey(key))
             {
-                //if (dic[key].count == newCount)
-                //{
-                //    if (dic[key].direction != direction)
-                //    {
-                //        dic[key].count = newCount;
-                //        dic[key].direction = direction;
-                //        var newNode = new Node() { x = x, y = y, count = newCount, nvn = new List<Node>(), direction = direction, parent = parent };
-                //        parent.nvn.Add(newNode);
-                //        q.Enqueue(newNode);
-                //    }
-                //}
-                if (dic[key].count > newCount)
+                if (dic[key].count == newCount && dic[key].direction != direction)
+                {
+                    var newNode = new Node() { x = x, y = y, count = newCount, direction = direction };
+                    q.Enqueue(newNode);
+                }
+                else if (dic[key].count > newCount)
                 {
                     dic[key].count = newCount;
                     dic[key].direction = direction;
-                    parent.nvn.Add(dic[key]);
-                    dic[key].parent = parent;
                     dic[key].visited = false;
                     q.Enqueue(dic[key]);
                 }
             }
             else
             {
-                var newNode = new Node() { x = x, y = y, count = newCount, nvn = new List<Node>(), direction = direction, parent = parent };
+                var newNode = new Node() { x = x, y = y, count = newCount, direction = direction };
                 dic.Add(key, newNode);
-                parent.nvn.Add(newNode);
                 q.Enqueue(newNode);
             }
         }
 
         static void SetNeighboursToVisit(Node n)
         {
-            if (n.x == 42 && n.y == 93)
-            { 
-            }
-            if (n.x == 49 && n.y <= 94 && n.y > 82)
-            {
-            }
-
-            if (n.x == 49 && n.y == 82)
-            {
-            }
-
-            if (n.x == 63 && n.y == 82)
-            {
-            }
-
             if (n.visited)
                 return;
 
             n.visited = true;
-
-            int key = 0;
 
             if (n.x > 0)
             {
@@ -169,9 +134,6 @@ namespace CastleOnTheGrid
 
             int c = 0;
 
-            xPositions = new List<int>();
-            yPositions = new List<int>();
-
             int startXTemp = 0;
             int startYTemp = 0;
             var choices = new Stack<int>();
@@ -180,9 +142,6 @@ namespace CastleOnTheGrid
 
             while (startX != goalX || startY != goalY)
             {
-                xPositions.Add(startX);
-                yPositions.Add(startY);
-
                 Print(startX, startY, goalX, goalY);
 
                 //var t = startX;
