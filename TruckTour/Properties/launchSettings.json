@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TruckTour": {
+      "commandName": "Project",
+      "commandLineArgs": "< input00.txt"
+    }
+  }
+}
