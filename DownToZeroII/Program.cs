@@ -15,7 +15,7 @@ namespace DownToZeroII
         static Dictionary<int, int> dic = new Dictionary<int, int>();
         static Queue<NCount> q;
 
-        static int downToZero2(int n)
+        static int downToZero(int n)
         {
             int count, minCount = int.MaxValue;
             q = new Queue<NCount>();
@@ -120,7 +120,7 @@ namespace DownToZeroII
 
                 //if (qItr == 2)
                 //{
-                int result = downToZero2(n);
+                int result = downToZero(n);
                 dic.Clear();
                 Console.WriteLine($"{n} => {result}");
                 //}
