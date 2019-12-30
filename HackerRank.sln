@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownToZeroII", "DownToZeroI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckTour", "TruckTour\TruckTour.csproj", "{FD3EF78F-AF75-4950-B212-B8678A0DD2D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueriesWithFixedLength", "QueriesWithFixedLength\QueriesWithFixedLength.csproj", "{D96CC2D3-91A1-4EBD-8D57-E86B005FA10A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -217,6 +219,10 @@ Global
 		{FD3EF78F-AF75-4950-B212-B8678A0DD2D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD3EF78F-AF75-4950-B212-B8678A0DD2D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD3EF78F-AF75-4950-B212-B8678A0DD2D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96CC2D3-91A1-4EBD-8D57-E86B005FA10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96CC2D3-91A1-4EBD-8D57-E86B005FA10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96CC2D3-91A1-4EBD-8D57-E86B005FA10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96CC2D3-91A1-4EBD-8D57-E86B005FA10A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -258,6 +264,7 @@ Global
 		{996F9636-F699-4AEE-B03C-3FFCF04AC986} = {AFE539FA-56A6-404A-8F90-17E6DC391F43}
 		{D8729F2C-BDBF-4852-AD31-29486E5D991F} = {9AFD1C4F-A3BB-4BCF-99BC-91715B155E3E}
 		{FD3EF78F-AF75-4950-B212-B8678A0DD2D9} = {9AFD1C4F-A3BB-4BCF-99BC-91715B155E3E}
+		{D96CC2D3-91A1-4EBD-8D57-E86B005FA10A} = {9AFD1C4F-A3BB-4BCF-99BC-91715B155E3E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C967F33-FAE5-4BED-8E08-84B177193EE9}

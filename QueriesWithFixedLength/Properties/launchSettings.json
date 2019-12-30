@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "QueriesWithFixedLength": {
+      "commandName": "Project",
+      "commandLineArgs": "< input09.txt"
+    }
+  }
+}
