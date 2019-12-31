@@ -2,7 +2,7 @@
   "profiles": {
     "QueriesWithFixedLength": {
       "commandName": "Project",
-      "commandLineArgs": "< input09.txt"
+      "commandLineArgs": "< input00.txt"
     }
   }
 }
